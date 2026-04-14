@@ -10,13 +10,6 @@ router = APIRouter()
 def get_food_trucks(q: str = Query(None)):
     try:
         data = fetch_food_trucks(q)
-
-        if not data:
-            raise HTTPException(status_code=404, detail="No food trucks found")
-
         return data
-
     except Exception:
-        raise HTTPException(
-            status_code=500, detail="Failed to fetch food trucks"
-        )
+        raise HTTPException(status_code=500, detail="Failed to fetch food trucks")
