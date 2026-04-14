@@ -92,8 +92,9 @@ Due to time constraints, I've not added frontend testing code.
 
 Deployment:
 
-Backend is deployed on Render
-Frontend is deployed on Firebase hosting
+Backend is deployed on Render - https://food-truck-api-b126.onrender.com
+
+Frontend is deployed on Firebase hosting - https://food-truck-finder-idris.web.app
 
 ---
 
