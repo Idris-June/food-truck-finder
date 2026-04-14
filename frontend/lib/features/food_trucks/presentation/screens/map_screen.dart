@@ -82,19 +82,40 @@ class MapScreen extends ConsumerWidget {
               ),
 
               data.maybeWhen(
+                data: (trucks) {
+                  if (trucks.isEmpty) {
+                    return Container(
+                      color: Colors.black.withValues(alpha: 0.2),
+                      child: const Center(
+                        child: Card(
+                          child: Padding(
+                            padding: EdgeInsets.all(16),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(
+                                  Icons.search_off,
+                                  size: 40,
+                                  color: Colors.grey,
+                                ),
+                                SizedBox(height: 10),
+                                Text("No results found"),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
+                  }
+                  return const SizedBox.shrink();
+                },
+
                 loading: () => Container(
                   color: Colors.black.withValues(alpha: 0.2),
                   child: const Center(
                     child: Card(
-                      elevation: 4,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(12)),
-                      ),
                       child: Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 20,
-                          vertical: 16,
-                        ),
+                        padding: EdgeInsets.all(16),
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
@@ -107,6 +128,7 @@ class MapScreen extends ConsumerWidget {
                     ),
                   ),
                 ),
+
                 orElse: () => const SizedBox.shrink(),
               ),
             ],

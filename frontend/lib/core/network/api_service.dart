@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 class ApiService {
   final Dio _dio = Dio(
     BaseOptions(
-      baseUrl: "http://127.0.0.1:8000",
+      baseUrl: "https://food-truck-api-b126.onrender.com",
       connectTimeout: const Duration(seconds: 5),
     ),
   );
